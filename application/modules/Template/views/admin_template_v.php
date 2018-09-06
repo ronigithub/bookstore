@@ -275,8 +275,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        <?php echo $page_header; ?>
+        <small><?php echo $description; ?></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -290,6 +290,8 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+
+        <?php $this->load->view($content_view); ?>
 
     </section>
     <!-- /.content -->
