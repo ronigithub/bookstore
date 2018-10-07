@@ -17,7 +17,9 @@ class Admin extends MY_Controller
 	}
 
 	function index(){
-		$this->template->call_admin_template();
+		$data['page_header'] = "Home";
+		$data['description']  = "List of all books";
+		$this->template->call_admin_template($data);
 	}
 
 	function books(){

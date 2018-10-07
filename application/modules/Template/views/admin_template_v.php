@@ -90,7 +90,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -175,18 +175,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Md. Josim Uddin Roni</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                 Md. Josim Uddin Roni
                 </p>
               </li>
               <!-- Menu Body -->
@@ -229,36 +228,12 @@ desired effect
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Bookstore Application</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li><a href="#"><i class="fa fa-barcode"></i> <span>Products</span></a></li>
+        <li><a href="<?php echo base_url('admin/books') ?>"><i class="fa fa-barcode"></i> <span>Books</span></a></li>
         <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>Orders</span></a></li>
         <li><a href="#"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
         <li><a href="#"><i class="fa fa-user"></i> <span>Users</span></a></li>
@@ -275,8 +250,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <?php echo $page_header; ?>
-        <small><?php echo $description; ?></small>
+        <?php echo isset($page_header) ? $page_header : ""; ?>
+        <small><?php echo isset($description) ? $description : ""; ?></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -291,7 +266,11 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 
-        <?php $this->load->view($content_view); ?>
+        <?php
+        if(isset($content_view) && $content_view != ""){
+          $this->load->view($content_view); 
+        }
+        ?>
 
     </section>
     <!-- /.content -->
@@ -302,7 +281,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="https://github.com/ronigithub">Md. Josim Uddin Roni</a>.</strong> All rights reserved.

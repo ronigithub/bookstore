@@ -66,6 +66,6 @@ class Books extends MY_Controller
 	}
 
 	function post_book(){
-
+	
 	}
 }
